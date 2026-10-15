@@ -21,7 +21,7 @@ public class EventService {
         EventEntity event = new EventEntity(
                 request.hostId(), request.title().trim(), request.description(),
                 request.startsAt(), request.endsAt(), request.venueName(),
-                request.city(), request.visibility(), request.capacity()
+                request.city(), request.visibility(), request.capacity(), request.imageUrl()
         );
         return EventResponse.from(repository.save(event));
     }
@@ -48,7 +48,7 @@ public class EventService {
         event.update(
                 request.title().trim(), request.description(),
                 request.startsAt(), request.endsAt(), request.venueName(),
-                request.city(), request.visibility(), request.capacity()
+                request.city(), request.visibility(), request.capacity(), request.imageUrl()
         );
         return EventResponse.from(repository.save(event));
     }

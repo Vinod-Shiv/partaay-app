@@ -49,12 +49,15 @@ public class EventEntity {
     @Column(name = "updated_at", nullable = false)
     private OffsetDateTime updatedAt;
 
+    @Column(name = "image_url", length = 1000)
+    private String imageUrl;
+
     protected EventEntity() {}
 
     public EventEntity(UUID hostId, String title, String description,
                        OffsetDateTime startsAt, OffsetDateTime endsAt,
                        String venueName, String city,
-                       EventVisibility visibility, Integer capacity) {
+                       EventVisibility visibility, Integer capacity, String imageUrl) {
         this.hostId = hostId;
         this.title = title;
         this.description = description;
@@ -64,6 +67,7 @@ public class EventEntity {
         this.city = city;
         this.visibility = visibility;
         this.capacity = capacity;
+        this.imageUrl = imageUrl;
         this.status = EventStatus.SCHEDULED;
         this.createdAt = OffsetDateTime.now();
         this.updatedAt = this.createdAt;
@@ -85,11 +89,11 @@ public class EventEntity {
     public EventVisibility getVisibility() { return visibility; }
     public Integer getCapacity() { return capacity; }
     public EventStatus getStatus() { return status; }
-
+    public String getImageUrl() { return imageUrl; }
     public void update(String title, String description,
                        OffsetDateTime startsAt, OffsetDateTime endsAt,
                        String venueName, String city,
-                       EventVisibility visibility, Integer capacity) {
+                       EventVisibility visibility, Integer capacity, String imageUrl) {
         this.title = title;
         this.description = description;
         this.startsAt = startsAt;
@@ -98,5 +102,6 @@ public class EventEntity {
         this.city = city;
         this.visibility = visibility;
         this.capacity = capacity;
+        this.imageUrl = imageUrl;
     }
 }

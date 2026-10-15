@@ -13,5 +13,6 @@ public record EventRequest(
         @Size(max = 200) String venueName,
         @Size(max = 120) String city,
         @NotNull EventVisibility visibility,
-        @NotNull @Min(1) @Max(100000) Integer capacity
+        @NotNull @Min(1) @Max(100000) Integer capacity,
+        @Size(max = 1000) String imageUrl
 ) {}
